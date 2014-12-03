@@ -1,16 +1,20 @@
 'use strict'
 
-###*
- # @ngdoc function
- # @name cacheApp.controller:MainCtrl
- # @description
- # # MainCtrl
- # Controller of the cacheApp
-###
 angular.module('cacheApp')
-  .controller 'MainCtrl', ($scope) ->
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate'
-      'AngularJS'
-      'Karma'
-    ]
+  .controller 'MainCtrl', ($scope, $http) ->
+
+    $scope.call_api = ->
+
+      $http(
+        method: "GET"
+        url: "/dummy.json"
+        cache: true
+      ).success((data, status, headers, config) ->
+        return
+      ).error (data, status, headers, config) ->
+        return
+
+      console.log "APIを発行しました。"
+      return
+
+    return
