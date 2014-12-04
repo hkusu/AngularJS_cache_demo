@@ -7,7 +7,7 @@ angular.module('cacheApp')
 
       $http(
         method: "GET"
-        url: "/dummy.json"
+        url: "dummy.json"
         cache: true
       ).success((data, status, headers, config) ->
         return
